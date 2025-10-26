@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+ 
+{% load static %} 
+ 
+{% block title %} Mountain {% endblock title %} 
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/mountain.css' %}" />
+{% endblock css %} 
+
+{% block content %}
+<div class="mountain-intro text-center">
+    <h1>Exploring the Majestic Mountains</h1>
+    <p>
+        There’s something magical about standing at the base of towering peaks, 
+        feeling the crisp mountain air, and witnessing nature in its purest form. 
+        Whether you’re hiking, climbing, or simply soaking in the view, mountains 
+        offer an escape, a challenge, and a breathtaking reminder of the world’s beauty.
+    </p>
+</div>
+
+<div class="mountain-highlights mt-5 row">
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <img src="{% static 'img/mountain1.jpg' %}" class="card-img-top" alt="Mountain View 1">
+            <div class="card-body">
+                <h5 class="card-title">Snowy Peaks</h5>
+                <p class="card-text">
+                    Experience the serenity of snow-capped mountains and pristine landscapes.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <img src="{% static 'img/trail.jpg' %}" class="card-img-top" alt="Mountain View 2">
+            <div class="card-body">
+                <h5 class="card-title">Hidden Trails</h5>
+                <p class="card-text">
+                    Discover hidden hiking trails and secret spots that few get to explore.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <img src="{% static 'img/mountain3.jpg' %}" class="card-img-top" alt="Mountain View 3">
+            <div class="card-body">
+                <h5 class="card-title">Sunset Vistas</h5>
+                <p class="card-text">
+                    Watch the sun paint the mountains in breathtaking colors at dusk.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

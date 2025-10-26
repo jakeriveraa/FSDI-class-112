@@ -1,0 +1,141 @@
+/* ========================================
+   Recipes Page Styling
+======================================== */
+
+/* Ensure recipe cards follow theme */
+[data-theme="cream"] .recipe-card {
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+[data-theme="dark"] .recipe-card {
+    background-color: #2a2a2a;
+    border: 1px solid #3a3a3a;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Recipe Titles */
+[data-theme="cream"] .recipe-card h3,
+[data-theme="cream"] .recipe-card h5 {
+    color: #2d5016;
+}
+
+[data-theme="dark"] .recipe-card h3,
+[data-theme="dark"] .recipe-card h5 {
+    color: #81c784;
+}
+
+/* Recipe Text */
+[data-theme="cream"] .recipe-card p,
+[data-theme="cream"] .recipe-card li {
+    color: #5a5a5a;
+}
+
+[data-theme="dark"] .recipe-card p,
+[data-theme="dark"] .recipe-card li {
+    color: #b0b0b0;
+}
+
+/* Collapsible Ingredients & Instructions */
+[data-theme="cream"] .recipe-card .recipe-collapse {
+    background-color: #fefefe;
+    border-left: 4px solid #66bb6a;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    border-radius: 5px;
+    color: #5a5a5a;
+}
+
+[data-theme="dark"] .recipe-card .recipe-collapse {
+    background-color: #383838;
+    border-left: 4px solid #66bb6a;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    border-radius: 5px;
+    color: #e0e0e0 !important;
+}
+
+/* Override all nested text inside collapse for dark mode */
+[data-theme="dark"] .recipe-card .recipe-collapse *,
+[data-theme="dark"] .recipe-card .recipe-collapse h6,
+[data-theme="dark"] .recipe-card .recipe-collapse p,
+[data-theme="dark"] .recipe-card .recipe-collapse li {
+    color: #e0e0e0 !important;
+}
+
+/* Collapse button */
+.recipe-card .collapse-btn {
+    background-color: transparent;
+    border: 1px solid #388e3c;
+    border-radius: 5px;
+    color: inherit;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+[data-theme="cream"] .recipe-card .collapse-btn:hover {
+    background-color: #388e3c;
+    color: #fff;
+}
+
+[data-theme="dark"] .recipe-card .collapse-btn:hover {
+    background-color: #66bb6a;
+    color: #000;
+}
+
+/* Recipe Images */
+.recipe-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+/* Collapse button base styling */
+.recipe-card .collapse-btn {
+    background-color: transparent; /* transparent in both themes */
+    border: 1px solid #388e3c;    /* green border */
+    border-radius: 5px;
+    color: inherit;               /* inherits text color from theme */
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Hover for cream theme */
+[data-theme="cream"] .recipe-card .collapse-btn:hover {
+    background-color: #388e3c;
+    color: #fff;
+}
+
+/* Hover for dark theme */
+[data-theme="dark"] .recipe-card .collapse-btn:hover {
+    background-color: #66bb6a;
+    color: #000;
+}
+
+/* Force button text color in dark mode */
+[data-theme="dark"] .recipe-card .collapse-btn {
+    color: #e0e0e0 !important;
+    border: 1px solid #66bb6a;
+    background-color: transparent !important;
+}
+/* Collapsible headings */
+[data-theme="cream"] .collapse-content h6 {
+    color: #2d5016; /* Dark green for light mode */
+}
+
+[data-theme="dark"] .collapse-content h6 {
+    color: #81c784; /* Light green for dark mode */
+}

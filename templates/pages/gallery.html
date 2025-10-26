@@ -1,16 +1,33 @@
 {% extends 'base.html' %}
- 
-{% load static %} 
- 
-{% block title %} Gallery {% endblock title %} 
+{% load static %}
+
+{% block title %}Gallery{% endblock title %}
+
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/about.css' %}" />
-{% endblock css %} 
+<link rel="stylesheet" href="{% static 'css/gallery.css' %}">
+{% endblock css %}
 
 {% block content %}
-<h1>Galler Page</h1>
-<div>
-  <h2>Hello</h2>
+<div class="container gallery-wrapper">
+  <h1 class="gallery-title">Gallery Page</h1>
+
+  <div class="gallery-container">
+    <figure class="gallery-item">
+      <img src="{% static 'img/charizard.jpg' %}" alt="Charizard">
+      <figcaption>Charizard - The Flame Pokémon</figcaption>
+    </figure>
+    <figure class="gallery-item">
+      <img src="{% static 'img/darkrai.jpg' %}" alt="Darkrai">
+      <figcaption>Darkrai - The Pitch-Black Pokémon</figcaption>
+    </figure>
+    <figure class="gallery-item">
+      <img src="{% static 'img/lucario.jpg' %}" alt="Lucario">
+      <figcaption>Lucario - The Aura Pokémon</figcaption>
+    </figure>
+    <figure class="gallery-item">
+      <img src="{% static 'img/squirtle.jpg' %}" alt="Squirtle">
+      <figcaption>Squirtle - The Tiny Turtle Pokémon</figcaption>
+    </figure>
+  </div>
 </div>
 {% endblock content %}
-

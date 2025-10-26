@@ -1,0 +1,76 @@
+/* Basic layout */
+.posts-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0;
+    list-style: none;
+}
+
+.post-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    flex: 1 1 calc(33% - 1rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* Post text */
+.post-title {
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.post-body {
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+/* Metadata */
+.post-meta {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 1rem;
+}
+
+.post-meta span {
+    margin-right: 1rem;
+}
+
+/* Link styling */
+.post-link {
+    text-decoration: none;
+    color: #1e88e5;
+    font-weight: 500;
+}
+
+.post-link:hover {
+    text-decoration: underline;
+}
+
+/* Page title */
+.posts-title {
+    margin-bottom: 1.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .post-card {
+        flex: 1 1 calc(50% - 1rem);
+    }
+}
+
+@media (max-width: 576px) {
+    .post-card {
+        flex: 1 1 100%;
+    }
+}

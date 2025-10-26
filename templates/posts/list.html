@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Posts{% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/posts.css' %}" />
+{% endblock css %}
+
+{% block content %}
+<h1 class="posts-title">Posts</h1>
+<ul class="posts-list">
+    {% for item in posts %}
+    <li class="post-card">
+        <div class="post-content">
+            <h5 class="post-title">{{ item.title }}</h5>
+            <p class="post-body">{{ item.body|truncatechars:100 }}</p>
+        </div>
+        <div class="post-meta">
+            <span class="post-author"><strong>Author:</strong> {{ item.author }}</span>
+            <span class="post-status"><strong>Status:</strong> {{ item.status }}</span>
+        </div>
+        <a class="post-link" href="{% url 'post_detail' item.id %}">Continue reading...</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock content %}

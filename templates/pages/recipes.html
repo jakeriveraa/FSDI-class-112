@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Recipes {% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/recipes.css' %}" />
+{% endblock css %}
+
+{% block content %}
+<div class="recipes-intro text-center mb-5">
+    <h1>Delicious Recipes to Try</h1>
+    <p>
+        Discover a variety of recipes—from quick snacks to gourmet meals. Click "Show Recipe" to see the ingredients and instructions.
+    </p>
+</div>
+
+<div class="recipe-list row">
+    <!-- Recipe 1 -->
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 recipe-card">
+            <img src="{% static 'img/spaghetti.jpg' %}" class="card-img-top" alt="Spaghetti Bolognese">
+            <div class="card-body">
+                <h5 class="card-title">Spaghetti Bolognese</h5>
+                <p class="card-text">Classic Italian spaghetti with a rich and savory meat sauce.</p>
+                
+                <button class="collapse-btn" type="button" data-bs-toggle="collapse" data-bs-target="#recipe1" aria-expanded="false" aria-controls="recipe1">
+                    Show Recipe
+                </button>
+                
+                <div class="collapse collapse-content mt-3" id="recipe1">
+                    <h6>Ingredients:</h6>
+                    <ul>
+                        <li>Spaghetti</li>
+                        <li>Ground beef</li>
+                        <li>Tomato sauce</li>
+                        <li>Onion & garlic</li>
+                        <li>Herbs & spices</li>
+                    </ul>
+                    <h6>Instructions:</h6>
+                    <p>Cook spaghetti according to package instructions. In a pan, sauté onions and garlic, add ground beef until browned, then mix in tomato sauce and herbs. Serve sauce over spaghetti.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recipe 2 -->
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 recipe-card">
+            <img src="{% static 'img/pancakes.jpg' %}" class="card-img-top" alt="Fluffy Pancakes">
+            <div class="card-body">
+                <h5 class="card-title">Fluffy Pancakes</h5>
+                <p class="card-text">Soft, fluffy pancakes perfect for breakfast or brunch.</p>
+                
+                <button class="collapse-btn" type="button" data-bs-toggle="collapse" data-bs-target="#recipe2" aria-expanded="false" aria-controls="recipe2">
+                    Show Recipe
+                </button>
+                
+                <div class="collapse collapse-content mt-3" id="recipe2">
+                    <h6>Ingredients:</h6>
+                    <ul>
+                        <li>Flour</li>
+                        <li>Eggs</li>
+                        <li>Milk</li>
+                        <li>Baking powder</li>
+                        <li>Sugar</li>
+                    </ul>
+                    <h6>Instructions:</h6>
+                    <p>Mix all ingredients into a smooth batter. Heat a pan and pour small portions to cook pancakes until golden on both sides. Serve with syrup or fresh fruit.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recipe 3 -->
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 recipe-card">
+            <img src="{% static 'img/chocolate_cake.jpg' %}" class="card-img-top" alt="Chocolate Cake">
+            <div class="card-body">
+                <h5 class="card-title">Chocolate Cake</h5>
+                <p class="card-text">Moist and decadent chocolate cake, perfect for celebrations.</p>
+                
+                <button class="collapse-btn" type="button" data-bs-toggle="collapse" data-bs-target="#recipe3" aria-expanded="false" aria-controls="recipe3">
+                    Show Recipe
+                </button>
+                
+                <div class="collapse collapse-content mt-3" id="recipe3">
+                    <h6>Ingredients:</h6>
+                    <ul>
+                        <li>Flour</li>
+                        <li>Cocoa powder</li>
+                        <li>Sugar</li>
+                        <li>Eggs</li>
+                        <li>Butter</li>
+                    </ul>
+                    <h6>Instructions:</h6>
+                    <p>Preheat oven to 350°F (175°C). Mix dry ingredients, then add eggs and butter. Pour into a greased pan and bake for 30-35 minutes. Cool and enjoy!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

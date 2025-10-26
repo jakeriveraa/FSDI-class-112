@@ -1,19 +1,36 @@
 {% extends 'base.html' %}
- 
-{% load static %} 
- 
-{% block title %} About {% endblock title %} 
+{% load static %}
+
+{% block title %} About {% endblock title %}
+
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/about.css' %}" />
-{% endblock css %} 
+{% endblock css %}
 
 {% block content %}
-<h1>About Me</h1>
-<p>
-  Hey, I'm Jake — the kind of person who's always chasing curiosity. Whether I'm
-  diving into creative projects, figuring out how things work, or just enjoying
-  time with good people, I like staying inspired and keeping things real. I'm
-  all about growth, good conversations, and making moments count. Life,s too
-  short to stay in one lane, so I'm always up for trying something new.
-</p>
+<div class="about-container">
+    <div class="about-card">
+        <!-- Profile Picture -->
+        <img src="{% static 'img/profile.jpg' %}" alt="Jake" class="about-img">
+
+        <h1>About Me</h1>
+        
+        <!-- Intro Text -->
+        <p class="about-text">
+            Hey, I'm Jake — the kind of person who's always chasing curiosity. Whether I'm
+            diving into creative projects, figuring out how things work, or just enjoying
+            time with good people, I like staying inspired and keeping things real. I'm
+            all about growth, good conversations, and making moments count. Life's too
+            short to stay in one lane, so I'm always up for trying something new.
+        </p>
+
+        <!-- Interests with Icons -->
+        <p class="about-text">
+            <img src="{% static 'img/coding-icon.png' %}" class="icon" alt="Coding Icon"> Coding,
+            <img src="{% static 'img/paint-icon.png' %}" class="icon" alt="Art Icon"> Art,
+            <img src="{% static 'img/travel-icon.png' %}" class="icon" alt="Travel Icon"> Travel,
+            <img src="{% static 'img/coffee-icon.png' %}" class="icon" alt="Coffee Icon"> Coffee
+        </p>
+    </div>
+</div>
 {% endblock content %}

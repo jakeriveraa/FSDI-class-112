@@ -9,3 +9,12 @@ class AboutPageView(TemplateView):
 
 class GalleryPageView(TemplateView):
     template_name = "pages/gallery.html"
+
+class MountainPageView(TemplateView):
+    template_name = "pages/mountain.html"
+
+class RecipesPageView(TemplateView):
+    template_name = "pages/recipes.html"
+
+class TravelPageView(TemplateView):
+    template_name = "pages/travel.html"

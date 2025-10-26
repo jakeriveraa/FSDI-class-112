@@ -10,5 +10,50 @@
 {% endblock css %}
 
 {% block content %}
-    <h1>Hello World using Django and Jinja!</h1>
+    <div class="container mt-4">
+        <h1 class="text-center mb-5">Welcome to My Blog</h1>
+
+        <div class="row">
+
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    
+                    <div class="card-body">
+                        <h5 class="card-title">Exploring the Mountains</h5>
+                        <p class="card-text">
+                            Discover the beauty and serenity of mountain landscapes. A perfect escape into nature's heart.
+                        </p>
+                        <a href="{% url 'mountain' %}" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    
+                    <div class="card-body">
+                        <h5 class="card-title">Travel Tips for 2025</h5>
+                        <p class="card-text">
+                            Get the latest advice on travel trends, destinations, and how to make the most of your adventures this year.
+                        </p>
+                        <a href="{% url 'travel' %}" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                   
+                    <div class="card-body">
+                        <h5 class="card-title">Delicious Recipes to Try</h5>
+                        <p class="card-text">
+                            From quick snacks to gourmet meals, here are some easy and tasty recipes you can make at home.
+                        </p>
+                        <a href="{% url 'recipes' %}" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
 {% endblock content %}

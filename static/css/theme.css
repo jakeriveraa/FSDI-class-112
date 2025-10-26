@@ -1,0 +1,397 @@
+/* ========================================
+   BLOG THEMES CSS - Dark & Cream
+======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Smooth Transitions */
+body, nav, footer, .post-card, .navbar, a, button {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* ========================================
+   CREAM THEME (Default)
+======================================== */
+
+[data-theme="cream"] body {
+    background-color: #faf8f3;
+    color: #333;
+}
+
+/* Navbar - Cream Theme */
+[data-theme="cream"] .navbar {
+    background-color: #388e3c !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+[data-theme="cream"] .navbar-brand {
+    color: #fff !important;
+    font-weight: 700;
+}
+
+[data-theme="cream"] .nav-link {
+    color: #e8f5e9 !important;
+    font-weight: 500;
+}
+
+[data-theme="cream"] .nav-link:hover {
+    color: #c8e6c9 !important;
+}
+
+[data-theme="cream"] .navbar-toggler {
+    border-color: rgba(255,255,255,0.3);
+}
+
+[data-theme="cream"] .navbar-toggler-icon {
+    filter: brightness(0) invert(1);
+}
+
+/* Main Content - Cream Theme */
+[data-theme="cream"] main {
+    padding: 2rem 0;
+}
+
+[data-theme="cream"] h1, 
+[data-theme="cream"] h2, 
+[data-theme="cream"] h3, 
+[data-theme="cream"] h4 {
+    color: #2d5016;
+}
+
+[data-theme="cream"] p {
+    color: #5a5a5a;
+    line-height: 1.8;
+}
+
+/* Post Cards - Cream Theme */
+[data-theme="cream"] .post-card,
+[data-theme="cream"] .card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border-left: 4px solid #66bb6a;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+[data-theme="cream"] .post-card:hover,
+[data-theme="cream"] .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(56, 142, 60, 0.2);
+    border-left-color: #388e3c;
+}
+
+[data-theme="cream"] .post-card h3,
+[data-theme="cream"] .card h3,
+[data-theme="cream"] .card-title {
+    color: #2d5016;
+}
+
+[data-theme="cream"] .post-card p,
+[data-theme="cream"] .card p,
+[data-theme="cream"] .card-text {
+    color: #5a5a5a;
+}
+
+/* Buttons - Cream Theme */
+[data-theme="cream"] .btn-primary,
+[data-theme="cream"] .btn {
+    background-color: #388e3c;
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 5px;
+    font-weight: 500;
+}
+
+[data-theme="cream"] .btn-primary:hover,
+[data-theme="cream"] .btn:hover {
+    background-color: #2d5016;
+}
+
+/* Footer - Cream Theme */
+[data-theme="cream"] footer {
+    background-color: #2d5016;
+    color: #e8f5e9;
+    padding: 2rem 0;
+}
+
+[data-theme="cream"] footer h5 {
+    color: #c8e6c9;
+}
+
+[data-theme="cream"] footer a {
+    color: #c8e6c9;
+    text-decoration: none;
+}
+
+[data-theme="cream"] footer a:hover {
+    color: #a5d6a7;
+}
+
+[data-theme="cream"] footer hr {
+    background-color: rgba(200, 230, 201, 0.3);
+    opacity: 1;
+}
+
+/* User Badge - Cream Theme */
+[data-theme="cream"] .user-badge {
+    background-color: #2d5016;
+    color: #c8e6c9;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Logout Button - Cream Theme */
+[data-theme="cream"] .nav-link.btn-link {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+}
+
+/* ========================================
+   DARK THEME
+======================================== */
+
+[data-theme="dark"] body {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+}
+
+/* Navbar - Dark Theme */
+[data-theme="dark"] .navbar {
+    background-color: #2d5016 !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+[data-theme="dark"] .navbar-brand {
+    color: #c8e6c9 !important;
+    font-weight: 700;
+}
+
+[data-theme="dark"] .nav-link {
+    color: #e8f5e9 !important;
+    font-weight: 500;
+}
+
+[data-theme="dark"] .nav-link:hover {
+    color: #81c784 !important;
+}
+
+[data-theme="dark"] .navbar-toggler {
+    border-color: rgba(200, 230, 201, 0.3);
+}
+
+[data-theme="dark"] .navbar-toggler-icon {
+    filter: brightness(0) invert(1);
+}
+
+/* Main Content - Dark Theme */
+[data-theme="dark"] main {
+    padding: 2rem 0;
+}
+
+[data-theme="dark"] h1, 
+[data-theme="dark"] h2, 
+[data-theme="dark"] h3, 
+[data-theme="dark"] h4 {
+    color: #e0e0e0;
+}
+
+[data-theme="dark"] p {
+    color: #b0b0b0;
+    line-height: 1.8;
+}
+
+/* Post Cards - Dark Theme */
+[data-theme="dark"] .post-card,
+[data-theme="dark"] .card,
+[data-theme="dark"] .card-body {
+    background-color: #2a2a2a !important;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    border-left: 4px solid #388e3c;
+    border: 1px solid #3a3a3a;
+}
+
+[data-theme="dark"] .post-card:hover,
+[data-theme="dark"] .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(56, 142, 60, 0.3);
+    border-left-color: #66bb6a;
+}
+
+[data-theme="dark"] .post-card h3,
+[data-theme="dark"] .card h3,
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] .card-title {
+    color: #81c784 !important;
+}
+
+[data-theme="dark"] .post-card p,
+[data-theme="dark"] .card p,
+[data-theme="dark"] p,
+[data-theme="dark"] .card-text {
+    color: #b0b0b0 !important;
+}
+
+/* Buttons - Dark Theme */
+[data-theme="dark"] .btn-primary,
+[data-theme="dark"] .btn {
+    background-color: #388e3c;
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 5px;
+    font-weight: 500;
+}
+
+[data-theme="dark"] .btn-primary:hover,
+[data-theme="dark"] .btn:hover {
+    background-color: #2d5016;
+}
+
+/* Footer - Dark Theme */
+[data-theme="dark"] footer {
+    background-color: #0d0d0d;
+    color: #b0b0b0;
+    padding: 2rem 0;
+    border-top: 2px solid #2d5016;
+}
+
+[data-theme="dark"] footer h5 {
+    color: #c8e6c9;
+}
+
+[data-theme="dark"] footer a {
+    color: #81c784;
+    text-decoration: none;
+}
+
+[data-theme="dark"] footer a:hover {
+    color: #66bb6a;
+}
+
+[data-theme="dark"] footer hr {
+    background-color: rgba(45, 80, 22, 0.5);
+    opacity: 1;
+}
+
+/* User Badge - Dark Theme */
+[data-theme="dark"] .user-badge {
+    background-color: #388e3c;
+    color: #fff;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Logout Button - Dark Theme */
+[data-theme="dark"] .nav-link.btn-link {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    color: #e8f5e9 !important;
+}
+
+/* ========================================
+   THEME TOGGLE BUTTON
+======================================== */
+
+.theme-toggle-btn {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.3rem;
+}
+
+.theme-toggle-btn:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+.theme-toggle-btn:active {
+    transform: scale(0.95);
+}
+
+/* ========================================
+   UTILITY CLASSES
+======================================== */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Lists */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+/* Grid for posts */
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .posts-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .theme-toggle-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+}

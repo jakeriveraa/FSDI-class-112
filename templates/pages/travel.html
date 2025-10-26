@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+ 
+{% load static %} 
+ 
+{% block title %} Travel {% endblock title %} 
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/travel.css' %}" />
+{% endblock css %} 
+
+{% block content %}
+<div class="travel-intro text-center">
+    <h1>Adventures Around the World</h1>
+    <p>
+        Traveling opens the mind, sparks creativity, and fills life with unforgettable experiences. 
+        From bustling cities to serene beaches, every destination has its own story waiting to be explored. 
+        Pack your bags, follow your curiosity, and make memories that last a lifetime.
+    </p>
+</div>
+
+<div class="travel-highlights mt-5 row">
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <img src="{% static 'img/travel1.jpg' %}" class="card-img-top" alt="City Adventure">
+            <div class="card-body">
+                <h5 class="card-title">City Adventures</h5>
+                <p class="card-text">
+                    Explore the vibrant streets, culture, and nightlife of some of the world's most exciting cities.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <img src="{% static 'img/travel2.jpg' %}" class="card-img-top" alt="Beach Escape">
+            <div class="card-body">
+                <h5 class="card-title">Beach Escapes</h5>
+                <p class="card-text">
+                    Relax on sun-soaked beaches, enjoy crystal-clear waters, and soak up nature's beauty.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <img src="{% static 'img/travel3.jpg' %}" class="card-img-top" alt="Cultural Journey">
+            <div class="card-body">
+                <h5 class="card-title">Cultural Journeys</h5>
+                <p class="card-text">
+                    Immerse yourself in local traditions, festivals, and cuisines for a truly memorable experience.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
