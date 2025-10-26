@@ -9,4 +9,3 @@ class SignUpView(CreateView):
 
 
 
-#pikachu thunderbolt  Gengar hauntersucks Optimus.Prime autobotslol

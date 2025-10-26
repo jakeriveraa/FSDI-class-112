@@ -44,12 +44,17 @@
     color: #333;
 }
 
-/* Icon styling */
+/* Icon styling - updated */
 .icon {
-    width: 24px;
-    height: 24px;
+    width: 32px;                /* Bigger size */
+    height: 32px;
     vertical-align: middle;
     margin-right: 8px;
+    display: inline-block;
+    background-color: white;    /* White background for visibility */
+    padding: 6px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 /* Dark Mode Support */
@@ -70,6 +75,9 @@
     color: #e0e0e0;
 }
 
+/* Dark mode icon styling - remove old filter and apply background */
 [data-theme="dark"] .icon {
-    filter: brightness(0) invert(1); /* Makes icons visible in dark mode */
+    filter: none;                 /* Remove invert/brightness */
+    background-color: #f0f0f0;    /* Light background for dark mode */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }

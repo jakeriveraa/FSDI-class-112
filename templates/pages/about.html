@@ -25,12 +25,24 @@
         </p>
 
         <!-- Interests with Icons -->
-        <p class="about-text">
-            <img src="{% static 'img/coding-icon.png' %}" class="icon" alt="Coding Icon"> Coding,
-            <img src="{% static 'img/paint-icon.png' %}" class="icon" alt="Art Icon"> Art,
-            <img src="{% static 'img/travel-icon.png' %}" class="icon" alt="Travel Icon"> Travel,
-            <img src="{% static 'img/coffee-icon.png' %}" class="icon" alt="Coffee Icon"> Coffee
-        </p>
+        <h2>Interests</h2>
+        <div class="interests mt-3">
+            <div class="d-inline-block me-3 mb-2">
+                <img src="{% static 'img/coding-icon.png' %}" class="icon" alt="Coding"> Coding
+            </div>
+            <div class="d-inline-block me-3 mb-2">
+                <img src="{% static 'img/paint-icon.png' %}" class="icon" alt="Art"> Art
+            </div>
+            <div class="d-inline-block me-3 mb-2">
+                <img src="{% static 'img/travel-icon.png' %}" class="icon" alt="Travel"> Travel
+            </div>
+            <div class="d-inline-block me-3 mb-2">
+                <img src="{% static 'img/coffee-icon.png' %}" class="icon" alt="Coffee"> Coffee
+            </div>
+            <div class="d-inline-block me-3 mb-2">
+                <img src="{% static 'img/joystick.png' %}" class="icon" alt="Gaming"> Gaming
+            </div>
+        </div>
     </div>
 </div>
 {% endblock content %}
