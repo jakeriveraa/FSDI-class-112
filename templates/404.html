@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    You broke the internet
+{% endblock %}
+
+{% block content %}
+    <div style="text-align:center; margin-top: 50px;">
+        <h1 style="font-size:3em;">💀 404: Page Not Found 💀</h1><br>
+        <p>The page you were looking for packed its bags and left.</p>
+        <p>Or maybe it never existed. Who knows? 🤷‍♂️</p>
+        <p>Either way... <strong>well done.</strong> You found nothing!</p>
+        <img src="https://http.cat/404" alt="404 Cat" style="margin-top:20px; border-radius:8px; max-width:400px;">
+        <p style="margin-top: 20px;">
+            <a href="{% url 'home' %}" style="color:#007bff; text-decoration:none;">Go back home before something else breaks →</a>
+        </p>
+    </div>
+{% endblock %}

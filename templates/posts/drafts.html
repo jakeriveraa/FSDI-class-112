@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}Posts{% endblock title %}
+{% block title %}Draft Posts{% endblock title %}
 
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/posts.css' %}" />
 {% endblock css %}
 
 {% block content %}
-<h1 class="posts-title">Posts</h1>
+<h1 class="posts-title">Draft Posts</h1>
 <ul class="posts-list">
-    {% for item in posts %}
+    {% for item in draft_posts %}
     <li class="post-card">
         <div class="post-content">
             <h5 class="post-title">{{ item.title }}</h5>
@@ -23,6 +23,4 @@
     </li>
     {% endfor %}
 </ul>
-<div class="archive-button-container" style="margin-bottom: 20px;">
-    <a href="{% url 'post_archive' %}" class="btn btn-archive">View Archive</a>
 {% endblock content %}

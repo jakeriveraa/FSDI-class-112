@@ -1,62 +1,674 @@
 /* ========================================
-   BLOG THEMES CSS - Dark & Cream
+   ANIMATION KEYFRAMES (For Extra Polish)
+======================================== */
+
+/* Fade in animation for page load */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Pulse animation for badges and buttons */
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(102, 187, 106, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(102, 187, 106, 0);
+    }
+}
+
+/* Shimmer effect for loading states */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+/* Apply fade-in to main content */
+main {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Apply fade-in to cards with stagger effect */
+.post-card,
+.card {
+    animation: fadeIn 0.6s ease-out backwards;
+}
+
+/* Stagger animation for multiple cards */
+.post-card:nth-child(1) { animation-delay: 0.1s; }
+.post-card:nth-child(2) { animation-delay: 0.2s; }
+.post-card:nth-child(3) { animation-delay: 0.3s; }
+.post-card:nth-child(4) { animation-delay: 0.4s; }
+.post-card:nth-child(5) { animation-delay: 0.5s; }
+.post-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* ========================================
+   BOOTSTRAP COMPONENT ENHANCEMENTS
+======================================== */
+
+/* Enhanced Bootstrap Cards */
+.card {
+    /* Additional enhancements for Bootstrap cards */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Card header enhancements */
+[data-theme="cream"] .card-header {
+    background: linear-gradient(135deg, rgba(56, 142, 60, 0.1), rgba(102, 187, 106, 0.05));
+    border-bottom: 2px solid rgba(102, 187, 106, 0.2);
+    font-weight: 600;
+    backdrop-filter: blur(5px);
+}
+
+[data-theme="dark"] .card-header {
+    background: linear-gradient(135deg, rgba(56, 142, 60, 0.15), rgba(102, 187, 106, 0.08));
+    border-bottom: 2px solid rgba(102, 187, 106, 0.3);
+    font-weight: 600;
+    backdrop-filter: blur(5px);
+}
+
+/* Bootstrap Modal enhancements */
+[data-theme="cream"] .modal-content {
+    background-color: rgba(255, 255, 255, 0.98);
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(102, 187, 106, 0.2);
+}
+
+[data-theme="dark"] .modal-content {
+    background-color: rgba(42, 42, 42, 0.98);
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(102, 187, 106, 0.2);
+}
+
+/* Modal header with gradient */
+[data-theme="cream"] .modal-header {
+    border-bottom: 2px solid rgba(102, 187, 106, 0.2);
+    background: linear-gradient(135deg, rgba(56, 142, 60, 0.05), transparent);
+}
+
+[data-theme="dark"] .modal-header {
+    border-bottom: 2px solid rgba(102, 187, 106, 0.3);
+    background: linear-gradient(135deg, rgba(56, 142, 60, 0.1), transparent);
+}
+
+/* Bootstrap Alert enhancements */
+[data-theme="cream"] .alert {
+    border-radius: 8px;
+    border-left: 4px solid;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+[data-theme="dark"] .alert {
+    border-radius: 8px;
+    border-left: 4px solid;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    background-color: rgba(42, 42, 42, 0.9) !important;
+}
+
+/* Success alerts */
+[data-theme="cream"] .alert-success {
+    background-color: rgba(200, 230, 201, 0.3);
+    border-left-color: #66bb6a;
+    color: #2d5016;
+}
+
+[data-theme="dark"] .alert-success {
+    background-color: rgba(56, 142, 60, 0.2);
+    border-left-color: #66bb6a;
+    color: #c8e6c9;
+}
+
+/* Info alerts */
+[data-theme="cream"] .alert-info {
+    background-color: rgba(144, 202, 249, 0.3);
+    border-left-color: #42a5f5;
+    color: #1565c0;
+}
+
+[data-theme="dark"] .alert-info {
+    background-color: rgba(33, 150, 243, 0.2);
+    border-left-color: #42a5f5;
+    color: #90caf9;
+}
+
+/* Warning alerts */
+[data-theme="cream"] .alert-warning {
+    background-color: rgba(255, 224, 130, 0.3);
+    border-left-color: #ffa726;
+    color: #e65100;
+}
+
+[data-theme="dark"] .alert-warning {
+    background-color: rgba(255, 152, 0, 0.2);
+    border-left-color: #ffa726;
+    color: #ffcc80;
+}
+
+/* Danger alerts */
+[data-theme="cream"] .alert-danger {
+    background-color: rgba(239, 154, 154, 0.3);
+    border-left-color: #ef5350;
+    color: #c62828;
+}
+
+[data-theme="dark"] .alert-danger {
+    background-color: rgba(244, 67, 54, 0.2);
+    border-left-color: #ef5350;
+    color: #ef9a9a;
+}
+
+/* Bootstrap Badge enhancements */
+.badge {
+    padding: 0.4rem 0.8rem;
+    border-radius: 12px;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+}
+
+.badge:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+/* Bootstrap Pagination enhancements */
+[data-theme="cream"] .pagination .page-link {
+    background-color: #fff;
+    border: 1px solid rgba(102, 187, 106, 0.3);
+    color: #388e3c;
+    transition: all 0.3s ease;
+}
+
+[data-theme="cream"] .pagination .page-link:hover {
+    background-color: #388e3c;
+    color: #fff;
+    border-color: #388e3c;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(56, 142, 60, 0.3);
+}
+
+[data-theme="dark"] .pagination .page-link {
+    background-color: #2a2a2a;
+    border: 1px solid rgba(102, 187, 106, 0.3);
+    color: #81c784;
+    transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .pagination .page-link:hover {
+    background-color: #388e3c;
+    color: #fff;
+    border-color: #66bb6a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(56, 142, 60, 0.4);
+}
+
+[data-theme="cream"] .pagination .page-item.active .page-link,
+[data-theme="dark"] .pagination .page-item.active .page-link {
+    background-color: #388e3c;
+    border-color: #388e3c;
+    box-shadow: 0 0 15px rgba(56, 142, 60, 0.4);
+}
+
+/* ========================================
+   FORM ENHANCEMENTS
+======================================== */
+
+/* Enhanced form controls */
+[data-theme="cream"] .form-control,
+[data-theme="cream"] .form-select {
+    border: 2px solid rgba(102, 187, 106, 0.2);
+    border-radius: 8px;
+    padding: 0.75rem;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Force dark text color on all inputs in cream mode */
+[data-theme="cream"] input,
+[data-theme="cream"] textarea,
+[data-theme="cream"] select,
+[data-theme="cream"] input[type="text"],
+[data-theme="cream"] input[type="email"],
+[data-theme="cream"] input[type="password"],
+[data-theme="cream"] input[type="number"] {
+    color: #333 !important;
+    background-color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Placeholder text color in cream mode */
+[data-theme="cream"] input::placeholder,
+[data-theme="cream"] textarea::placeholder {
+    color: #888 !important;
+    opacity: 1;
+}
+
+[data-theme="cream"] .form-control:focus,
+[data-theme="cream"] .form-select:focus {
+    border-color: #66bb6a;
+    box-shadow: 0 0 0 0.2rem rgba(102, 187, 106, 0.25);
+    background-color: #fff;
+    transform: translateY(-2px);
+}
+
+[data-theme="dark"] .form-control,
+[data-theme="dark"] .form-select {
+    border: 2px solid rgba(102, 187, 106, 0.2);
+    border-radius: 8px;
+    padding: 0.75rem;
+    transition: all 0.3s ease;
+    background-color: rgba(42, 42, 42, 0.9);
+    color: #e0e0e0 !important;
+}
+
+/* Force light text color on all inputs in dark mode */
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select,
+[data-theme="dark"] input[type="text"],
+[data-theme="dark"] input[type="email"],
+[data-theme="dark"] input[type="password"],
+[data-theme="dark"] input[type="number"] {
+    color: #e0e0e0 !important;
+    background-color: rgba(42, 42, 42, 0.9) !important;
+}
+
+/* Placeholder text color in dark mode */
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder {
+    color: #888 !important;
+    opacity: 1;
+}
+
+[data-theme="dark"] .form-control:focus,
+[data-theme="dark"] .form-select:focus {
+    border-color: #66bb6a;
+    box-shadow: 0 0 0 0.2rem rgba(102, 187, 106, 0.25), 0 0 20px rgba(102, 187, 106, 0.1);
+    background-color: rgba(50, 50, 50, 0.95);
+    transform: translateY(-2px);
+}
+
+/* Form labels */
+[data-theme="cream"] .form-label {
+    font-weight: 600;
+    color: #2d5016;
+    margin-bottom: 0.5rem;
+}
+
+[data-theme="dark"] .form-label {
+    font-weight: 600;
+    color: #81c784;
+    margin-bottom: 0.5rem;
+}
+
+/* Django form help text and validation messages */
+[data-theme="cream"] .helptext,
+[data-theme="cream"] .form-text,
+[data-theme="cream"] small,
+[data-theme="cream"] ul.errorlist,
+[data-theme="cream"] .errorlist {
+    color: #5a5a5a !important;
+    font-size: 0.875rem;
+}
+
+[data-theme="dark"] .helptext,
+[data-theme="dark"] .form-text,
+[data-theme="dark"] small,
+[data-theme="dark"] ul.errorlist,
+[data-theme="dark"] .errorlist {
+    color: #b0b0b0 !important;
+    font-size: 0.875rem;
+}
+
+/* Error messages should be more visible */
+[data-theme="cream"] ul.errorlist,
+[data-theme="cream"] .errorlist {
+    color: #c62828 !important;
+}
+
+[data-theme="dark"] ul.errorlist,
+[data-theme="dark"] .errorlist {
+    color: #ef9a9a !important;
+}
+
+/* Style the list items in help text */
+[data-theme="cream"] .helptext ul,
+[data-theme="cream"] .form-text ul {
+    padding-left: 1.25rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+[data-theme="cream"] .helptext ul li,
+[data-theme="cream"] .form-text ul li {
+    color: #5a5a5a !important;
+    list-style-type: disc;
+}
+
+[data-theme="dark"] .helptext ul,
+[data-theme="dark"] .form-text ul {
+    padding-left: 1.25rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+[data-theme="dark"] .helptext ul li,
+[data-theme="dark"] .form-text ul li {
+    color: #b0b0b0 !important;
+    list-style-type: disc;
+}
+
+/* ========================================
+   BREADCRUMB ENHANCEMENTS
+======================================== */
+
+[data-theme="cream"] .breadcrumb {
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+[data-theme="dark"] .breadcrumb {
+    background-color: rgba(42, 42, 42, 0.6);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+[data-theme="cream"] .breadcrumb-item a {
+    color: #388e3c;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+[data-theme="cream"] .breadcrumb-item a:hover {
+    color: #2d5016;
+    text-decoration: underline;
+}
+
+[data-theme="dark"] .breadcrumb-item a {
+    color: #81c784;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .breadcrumb-item a:hover {
+    color: #66bb6a;
+    text-decoration: underline;
+}
+
+/* ========================================
+   TOOLTIP & POPOVER ENHANCEMENTS
+======================================== */
+
+.tooltip-inner {
+    background-color: rgba(45, 80, 22, 0.95);
+    border-radius: 6px;
+    padding: 0.5rem 0.75rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
+}
+
+/* ========================================
+   TABLE ENHANCEMENTS
+======================================== */
+
+[data-theme="cream"] .table {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+[data-theme="cream"] .table thead {
+    background: linear-gradient(135deg, #388e3c, #66bb6a);
+    color: #fff;
+}
+
+[data-theme="cream"] .table tbody tr {
+    transition: all 0.3s ease;
+}
+
+[data-theme="cream"] .table tbody tr:hover {
+    background-color: rgba(200, 230, 201, 0.2);
+    transform: scale(1.01);
+}
+
+[data-theme="dark"] .table {
+    background-color: rgba(42, 42, 42, 0.9);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    color: #e0e0e0;
+}
+
+[data-theme="dark"] .table thead {
+    background: linear-gradient(135deg, #2d5016, #388e3c);
+    color: #c8e6c9;
+}
+
+[data-theme="dark"] .table tbody tr {
+    transition: all 0.3s ease;
+    border-color: rgba(102, 187, 106, 0.1);
+}
+
+[data-theme="dark"] .table tbody tr:hover {
+    background-color: rgba(56, 142, 60, 0.1);
+    transform: scale(1.01);
+}
+
+/* ========================================
+   LOADING SPINNER ENHANCEMENT
+======================================== */
+
+.spinner-border {
+    /* Add gradient border effect */
+    border: 3px solid transparent;
+    border-top-color: #388e3c;
+    border-right-color: #66bb6a;
+    box-shadow: 0 0 15px rgba(102, 187, 106, 0.3);
+}
+
+/* ========================================
+   ACCESSIBILITY IMPROVEMENTS
+======================================== */
+
+/* Focus indicators for keyboard navigation */
+[data-theme="cream"] *:focus-visible {
+    outline: 3px solid #66bb6a;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+[data-theme="dark"] *:focus-visible {
+    outline: 3px solid #66bb6a;
+    outline-offset: 2px;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(102, 187, 106, 0.3);
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ========================================
+   PRINT STYLES (Bonus)
+======================================== */
+
+@media print {
+    /* Remove unnecessary elements when printing */
+    nav, footer, .theme-toggle-btn, .btn {
+        display: none !important;
+    }
+    
+    /* Ensure good contrast for printing */
+    body {
+        background: white !important;
+        color: black !important;
+    }
+    
+    .post-card, .card {
+        border: 1px solid #333 !important;
+        box-shadow: none !important;
+        page-break-inside: avoid;
+    }
+}
+
+/* ========================================
+   EXTRA SMALL DEVICES (< 576px)
+======================================== */
+
+@media (max-width: 576px) {
+    /* Stack navigation items on very small screens */
+    .navbar-nav {
+        text-align: center;
+    }
+    
+    /* Reduce padding on cards for mobile */
+    .post-card, .card {
+        padding: 1rem;
+    }
+    
+    /* Smaller font sizes for mobile */
+    h1 { font-size: 1.75rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.25rem; }
+    
+    /* Full width buttons on mobile */
+    .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* ======================================== 
+   END OF ENHANCED THEME CSS 
+========================================ENHANCED BLOG THEMES CSS - Dark & Cream
+   With Transparency, Shadows, and Modern Effects
 ======================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-/* Global Reset */
+/* ========================================
+   GLOBAL RESET & BASE STYLES
+======================================== */
+
+/* Reset removes browser default margins/padding for consistency */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Includes padding/border in element width */
     font-family: 'Inter', sans-serif;
 }
 
-/* Smooth Transitions */
+/* Smooth Transitions - Makes theme changes and hover effects smooth */
 body, nav, footer, .post-card, .navbar, a, button {
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* ========================================
-   CREAM THEME (Default)
+   CREAM THEME (Default Light Mode)
 ======================================== */
 
 [data-theme="cream"] body {
     background-color: #faf8f3;
     color: #333;
+    /* Subtle background pattern for depth */
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(102, 187, 106, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(56, 142, 60, 0.03) 0%, transparent 50%);
 }
 
-/* Navbar - Cream Theme */
+/* ========================================
+   NAVBAR - Cream Theme
+======================================== */
+
 [data-theme="cream"] .navbar {
     background-color: #388e3c !important;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    /* Layered shadow creates depth - first shadow is subtle, second is softer */
+    box-shadow: 
+        0 2px 8px rgba(0,0,0,0.1),
+        0 4px 20px rgba(56, 142, 60, 0.15);
+    /* Backdrop blur creates glassmorphism effect if browser supports it */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 [data-theme="cream"] .navbar-brand {
     color: #fff !important;
     font-weight: 700;
+    /* Text shadow makes text pop against background */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    /* Smooth transition for hover effects */
+    transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+[data-theme="cream"] .navbar-brand:hover {
+    /* Slight lift effect on hover */
+    transform: translateY(-2px);
+    text-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 
 [data-theme="cream"] .nav-link {
     color: #e8f5e9 !important;
     font-weight: 500;
+    /* Rounded padding creates pill-shaped background on hover */
+    padding: 0.5rem 1rem !important;
+    border-radius: 20px;
+    transition: all 0.3s ease;
 }
 
 [data-theme="cream"] .nav-link:hover {
-    color: #c8e6c9 !important;
+    color: #fff !important;
+    /* Semi-transparent white background on hover */
+    background-color: rgba(255, 255, 255, 0.15);
+    /* Soft glow effect */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
 }
 
 [data-theme="cream"] .navbar-toggler {
     border-color: rgba(255,255,255,0.3);
+    /* Adds transparency to mobile menu button */
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 [data-theme="cream"] .navbar-toggler-icon {
     filter: brightness(0) invert(1);
 }
 
-/* Main Content - Cream Theme */
+/* ========================================
+   MAIN CONTENT - Cream Theme
+======================================== */
+
 [data-theme="cream"] main {
     padding: 2rem 0;
+    /* Minimum height ensures content fills screen */
+    min-height: calc(100vh - 200px);
 }
 
 [data-theme="cream"] h1, 
@@ -64,6 +676,8 @@ body, nav, footer, .post-card, .navbar, a, button {
 [data-theme="cream"] h3, 
 [data-theme="cream"] h4 {
     color: #2d5016;
+    /* Slight letter spacing improves readability */
+    letter-spacing: -0.5px;
 }
 
 [data-theme="cream"] p {
@@ -71,29 +685,82 @@ body, nav, footer, .post-card, .navbar, a, button {
     line-height: 1.8;
 }
 
-/* Post Cards - Cream Theme */
+/* ========================================
+   POST CARDS - Cream Theme (Enhanced)
+======================================== */
+
 [data-theme="cream"] .post-card,
 [data-theme="cream"] .card {
-    background-color: #fff;
-    border-radius: 10px;
+    /* Semi-transparent white for glass effect */
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
     padding: 1.5rem;
     margin-bottom: 1.5rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    /* Multiple layered shadows create depth */
+    box-shadow: 
+        0 2px 8px rgba(0,0,0,0.08),
+        0 4px 16px rgba(0,0,0,0.05),
+        0 8px 32px rgba(56, 142, 60, 0.03);
     border-left: 4px solid #66bb6a;
-    border: 1px solid rgba(0,0,0,0.1);
+    border: 1px solid rgba(102, 187, 106, 0.2);
+    /* Backdrop blur for glassmorphism */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    /* Smooth transition for all properties */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Prevents content overflow */
+    overflow: hidden;
+    position: relative;
+}
+
+/* Subtle gradient overlay on cards */
+[data-theme="cream"] .post-card::before,
+[data-theme="cream"] .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    /* Gradient from green to lighter green */
+    background: linear-gradient(90deg, #388e3c, #66bb6a, #81c784);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+[data-theme="cream"] .post-card:hover::before,
+[data-theme="cream"] .card:hover::before {
+    opacity: 1;
 }
 
 [data-theme="cream"] .post-card:hover,
 [data-theme="cream"] .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 12px rgba(56, 142, 60, 0.2);
+    /* Lift effect on hover */
+    transform: translateY(-8px) scale(1.01);
+    /* Enhanced shadow when hovering */
+    box-shadow: 
+        0 8px 24px rgba(0,0,0,0.12),
+        0 12px 40px rgba(56, 142, 60, 0.15),
+        0 16px 56px rgba(56, 142, 60, 0.08);
     border-left-color: #388e3c;
+    /* Brighter border on hover */
+    border-color: rgba(102, 187, 106, 0.4);
 }
 
 [data-theme="cream"] .post-card h3,
 [data-theme="cream"] .card h3,
 [data-theme="cream"] .card-title {
     color: #2d5016;
+    margin-bottom: 0.75rem;
+    /* Smooth transition for color changes */
+    transition: color 0.3s ease;
+}
+
+[data-theme="cream"] .post-card:hover h3,
+[data-theme="cream"] .card:hover h3,
+[data-theme="cream"] .card:hover .card-title {
+    /* Brighter heading on hover */
+    color: #388e3c;
 }
 
 [data-theme="cream"] .post-card p,
@@ -102,63 +769,149 @@ body, nav, footer, .post-card, .navbar, a, button {
     color: #5a5a5a;
 }
 
-/* Buttons - Cream Theme */
+/* ========================================
+   BUTTONS - Cream Theme (Enhanced)
+======================================== */
+
 [data-theme="cream"] .btn-primary,
 [data-theme="cream"] .btn {
-    background-color: #388e3c;
+    /* Gradient background for modern look */
+    background: linear-gradient(135deg, #388e3c 0%, #2d5016 100%);
     color: #fff;
     border: none;
     padding: 0.6rem 1.5rem;
-    border-radius: 5px;
+    border-radius: 8px;
     font-weight: 500;
+    /* Multiple shadows for depth */
+    box-shadow: 
+        0 2px 8px rgba(56, 142, 60, 0.3),
+        0 4px 16px rgba(56, 142, 60, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* Shine effect on buttons */
+[data-theme="cream"] .btn-primary::before,
+[data-theme="cream"] .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    /* Diagonal gradient for shine */
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+[data-theme="cream"] .btn-primary:hover::before,
+[data-theme="cream"] .btn:hover::before {
+    /* Shine moves across button on hover */
+    left: 100%;
 }
 
 [data-theme="cream"] .btn-primary:hover,
 [data-theme="cream"] .btn:hover {
-    background-color: #2d5016;
+    /* Lift and enhance shadow on hover */
+    transform: translateY(-3px);
+    box-shadow: 
+        0 4px 12px rgba(56, 142, 60, 0.4),
+        0 8px 24px rgba(56, 142, 60, 0.2);
 }
 
-/* Footer - Cream Theme */
+[data-theme="cream"] .btn-primary:active,
+[data-theme="cream"] .btn:active {
+    /* Press down effect when clicked */
+    transform: translateY(-1px);
+    box-shadow: 
+        0 2px 6px rgba(56, 142, 60, 0.3);
+}
+
+/* ========================================
+   FOOTER - Cream Theme (Enhanced)
+======================================== */
+
 [data-theme="cream"] footer {
-    background-color: #2d5016;
+    background: linear-gradient(180deg, #2d5016 0%, #1a2f0d 100%);
     color: #e8f5e9;
     padding: 2rem 0;
+    /* Subtle top shadow separates footer from content */
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+/* Decorative top border on footer */
+[data-theme="cream"] footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #66bb6a, transparent);
 }
 
 [data-theme="cream"] footer h5 {
     color: #c8e6c9;
+    margin-bottom: 1rem;
 }
 
 [data-theme="cream"] footer a {
     color: #c8e6c9;
     text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+}
+
+/* Underline animation on footer links */
+[data-theme="cream"] footer a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #a5d6a7;
+    transition: width 0.3s ease;
 }
 
 [data-theme="cream"] footer a:hover {
     color: #a5d6a7;
+    transform: translateX(3px);
+}
+
+[data-theme="cream"] footer a:hover::after {
+    width: 100%;
 }
 
 [data-theme="cream"] footer hr {
     background-color: rgba(200, 230, 201, 0.3);
     opacity: 1;
+    border: none;
+    height: 1px;
 }
 
-/* User Badge - Cream Theme */
+/* ========================================
+   USER BADGE - Cream Theme
+======================================== */
+
 [data-theme="cream"] .user-badge {
-    background-color: #2d5016;
+    background: linear-gradient(135deg, #2d5016 0%, #388e3c 100%);
     color: #c8e6c9;
     padding: 0.4rem 1rem;
     border-radius: 20px;
     font-size: 0.9rem;
     font-weight: 600;
+    box-shadow: 0 2px 8px rgba(45, 80, 22, 0.3);
+    transition: all 0.3s ease;
 }
 
-/* Logout Button - Cream Theme */
-[data-theme="cream"] .nav-link.btn-link {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem 1rem;
+[data-theme="cream"] .user-badge:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(45, 80, 22, 0.4);
 }
 
 /* ========================================
@@ -168,39 +921,70 @@ body, nav, footer, .post-card, .navbar, a, button {
 [data-theme="dark"] body {
     background-color: #1a1a1a;
     color: #e0e0e0;
+    /* Subtle radial gradients add depth without being distracting */
+    background-image: 
+        radial-gradient(circle at 30% 20%, rgba(56, 142, 60, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(102, 187, 106, 0.03) 0%, transparent 50%);
 }
 
-/* Navbar - Dark Theme */
+/* ========================================
+   NAVBAR - Dark Theme
+======================================== */
+
 [data-theme="dark"] .navbar {
-    background-color: #2d5016 !important;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    /* Semi-transparent background for glassmorphism */
+    background-color: rgba(45, 80, 22, 0.95) !important;
+    box-shadow: 
+        0 2px 10px rgba(0,0,0,0.5),
+        0 4px 20px rgba(0,0,0,0.3);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(102, 187, 106, 0.1);
 }
 
 [data-theme="dark"] .navbar-brand {
     color: #c8e6c9 !important;
     font-weight: 700;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .navbar-brand:hover {
+    transform: translateY(-2px);
+    text-shadow: 0 4px 12px rgba(102, 187, 106, 0.4);
+    color: #81c784 !important;
 }
 
 [data-theme="dark"] .nav-link {
     color: #e8f5e9 !important;
     font-weight: 500;
+    padding: 0.5rem 1rem !important;
+    border-radius: 20px;
+    transition: all 0.3s ease;
 }
 
 [data-theme="dark"] .nav-link:hover {
     color: #81c784 !important;
+    background-color: rgba(129, 199, 132, 0.1);
+    box-shadow: 0 0 20px rgba(129, 199, 132, 0.15);
 }
 
 [data-theme="dark"] .navbar-toggler {
     border-color: rgba(200, 230, 201, 0.3);
+    background-color: rgba(200, 230, 201, 0.1);
 }
 
 [data-theme="dark"] .navbar-toggler-icon {
     filter: brightness(0) invert(1);
 }
 
-/* Main Content - Dark Theme */
+/* ========================================
+   MAIN CONTENT - Dark Theme
+======================================== */
+
 [data-theme="dark"] main {
     padding: 2rem 0;
+    min-height: calc(100vh - 200px);
 }
 
 [data-theme="dark"] h1, 
@@ -208,6 +992,9 @@ body, nav, footer, .post-card, .navbar, a, button {
 [data-theme="dark"] h3, 
 [data-theme="dark"] h4 {
     color: #e0e0e0;
+    letter-spacing: -0.5px;
+    /* Subtle glow on headings in dark mode */
+    text-shadow: 0 0 20px rgba(129, 199, 132, 0.1);
 }
 
 [data-theme="dark"] p {
@@ -215,24 +1002,63 @@ body, nav, footer, .post-card, .navbar, a, button {
     line-height: 1.8;
 }
 
-/* Post Cards - Dark Theme */
+/* ========================================
+   POST CARDS - Dark Theme (Enhanced)
+======================================== */
+
 [data-theme="dark"] .post-card,
 [data-theme="dark"] .card,
 [data-theme="dark"] .card-body {
-    background-color: #2a2a2a !important;
-    border-radius: 10px;
+    /* Semi-transparent dark background */
+    background-color: rgba(42, 42, 42, 0.95) !important;
+    border-radius: 12px;
     padding: 1.5rem;
     margin-bottom: 1.5rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    /* Deeper shadows for dark mode */
+    box-shadow: 
+        0 4px 10px rgba(0,0,0,0.3),
+        0 8px 20px rgba(0,0,0,0.2),
+        0 12px 40px rgba(0,0,0,0.15);
     border-left: 4px solid #388e3c;
-    border: 1px solid #3a3a3a;
+    border: 1px solid rgba(58, 58, 58, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Glowing top border effect */
+[data-theme="dark"] .post-card::before,
+[data-theme="dark"] .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #388e3c, #66bb6a, #81c784);
+    opacity: 0;
+    box-shadow: 0 0 15px rgba(102, 187, 106, 0.5);
+    transition: opacity 0.4s ease;
+}
+
+[data-theme="dark"] .post-card:hover::before,
+[data-theme="dark"] .card:hover::before {
+    opacity: 1;
 }
 
 [data-theme="dark"] .post-card:hover,
 [data-theme="dark"] .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(56, 142, 60, 0.3);
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 
+        0 12px 24px rgba(0,0,0,0.4),
+        0 16px 40px rgba(56, 142, 60, 0.2),
+        0 20px 56px rgba(56, 142, 60, 0.1);
     border-left-color: #66bb6a;
+    border-color: rgba(102, 187, 106, 0.3);
+    /* Brighter background on hover */
+    background-color: rgba(50, 50, 50, 0.98) !important;
 }
 
 [data-theme="dark"] .post-card h3,
@@ -244,6 +1070,15 @@ body, nav, footer, .post-card, .navbar, a, button {
 [data-theme="dark"] h5,
 [data-theme="dark"] .card-title {
     color: #81c784 !important;
+    transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .post-card:hover h3,
+[data-theme="dark"] .card:hover h3,
+[data-theme="dark"] .card:hover .card-title {
+    color: #66bb6a !important;
+    /* Glow effect on hover */
+    text-shadow: 0 0 15px rgba(102, 187, 106, 0.3);
 }
 
 [data-theme="dark"] .post-card p,
@@ -253,73 +1088,152 @@ body, nav, footer, .post-card, .navbar, a, button {
     color: #b0b0b0 !important;
 }
 
-/* Buttons - Dark Theme */
+/* ========================================
+   BUTTONS - Dark Theme (Enhanced)
+======================================== */
+
 [data-theme="dark"] .btn-primary,
 [data-theme="dark"] .btn {
-    background-color: #388e3c;
+    background: linear-gradient(135deg, #388e3c 0%, #2d5016 100%);
     color: #fff;
     border: none;
     padding: 0.6rem 1.5rem;
-    border-radius: 5px;
+    border-radius: 8px;
     font-weight: 500;
+    box-shadow: 
+        0 4px 12px rgba(56, 142, 60, 0.4),
+        0 8px 24px rgba(56, 142, 60, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+[data-theme="dark"] .btn-primary::before,
+[data-theme="dark"] .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+[data-theme="dark"] .btn-primary:hover::before,
+[data-theme="dark"] .btn:hover::before {
+    left: 100%;
 }
 
 [data-theme="dark"] .btn-primary:hover,
 [data-theme="dark"] .btn:hover {
-    background-color: #2d5016;
+    transform: translateY(-3px);
+    box-shadow: 
+        0 6px 16px rgba(56, 142, 60, 0.5),
+        0 12px 32px rgba(56, 142, 60, 0.3);
 }
 
-/* Footer - Dark Theme */
+[data-theme="dark"] .btn-primary:active,
+[data-theme="dark"] .btn:active {
+    transform: translateY(-1px);
+}
+
+/* ========================================
+   FOOTER - Dark Theme (Enhanced)
+======================================== */
+
 [data-theme="dark"] footer {
-    background-color: #0d0d0d;
+    background: linear-gradient(180deg, #0d0d0d 0%, #000000 100%);
     color: #b0b0b0;
     padding: 2rem 0;
-    border-top: 2px solid #2d5016;
+    border-top: 2px solid rgba(45, 80, 22, 0.5);
+    box-shadow: 0 -8px 30px rgba(0,0,0,0.5);
+    position: relative;
+}
+
+[data-theme="dark"] footer::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #66bb6a, transparent);
+    box-shadow: 0 0 10px rgba(102, 187, 106, 0.5);
 }
 
 [data-theme="dark"] footer h5 {
     color: #c8e6c9;
+    text-shadow: 0 0 10px rgba(200, 230, 201, 0.2);
 }
 
 [data-theme="dark"] footer a {
     color: #81c784;
     text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+}
+
+[data-theme="dark"] footer a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #66bb6a;
+    box-shadow: 0 0 8px rgba(102, 187, 106, 0.5);
+    transition: width 0.3s ease;
 }
 
 [data-theme="dark"] footer a:hover {
     color: #66bb6a;
+    transform: translateX(3px);
+    text-shadow: 0 0 10px rgba(102, 187, 106, 0.3);
+}
+
+[data-theme="dark"] footer a:hover::after {
+    width: 100%;
 }
 
 [data-theme="dark"] footer hr {
     background-color: rgba(45, 80, 22, 0.5);
     opacity: 1;
+    border: none;
+    height: 1px;
 }
 
-/* User Badge - Dark Theme */
+/* ========================================
+   USER BADGE - Dark Theme
+======================================== */
+
 [data-theme="dark"] .user-badge {
-    background-color: #388e3c;
+    background: linear-gradient(135deg, #388e3c 0%, #66bb6a 100%);
     color: #fff;
     padding: 0.4rem 1rem;
     border-radius: 20px;
     font-size: 0.9rem;
     font-weight: 600;
+    box-shadow: 
+        0 4px 12px rgba(56, 142, 60, 0.4),
+        0 0 20px rgba(56, 142, 60, 0.2);
+    transition: all 0.3s ease;
 }
 
-/* Logout Button - Dark Theme */
-[data-theme="dark"] .nav-link.btn-link {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem 1rem;
-    color: #e8f5e9 !important;
+[data-theme="dark"] .user-badge:hover {
+    transform: scale(1.05);
+    box-shadow: 
+        0 6px 16px rgba(56, 142, 60, 0.5),
+        0 0 25px rgba(56, 142, 60, 0.3);
 }
 
 /* ========================================
-   THEME TOGGLE BUTTON
+   THEME TOGGLE BUTTON (Enhanced)
 ======================================== */
 
 .theme-toggle-btn {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.15);
     border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 50%;
     width: 45px;
@@ -328,17 +1242,41 @@ body, nav, footer, .post-card, .navbar, a, button {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     font-size: 1.3rem;
+    /* Subtle shadow for depth */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animated background on hover */
+.theme-toggle-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+}
+
+.theme-toggle-btn:hover::before {
+    width: 100%;
+    height: 100%;
 }
 
 .theme-toggle-btn:hover {
-    background-color: rgba(255, 255, 255, 0.3);
-    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: scale(1.1) rotate(15deg);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }
 
 .theme-toggle-btn:active {
-    transform: scale(0.95);
+    transform: scale(0.95) rotate(0deg);
 }
 
 /* ========================================
@@ -372,6 +1310,47 @@ a {
 }
 
 /* ========================================
+   CUSTOM SCROLLBAR (Optional Enhancement)
+======================================== */
+
+/* Cream theme scrollbar */
+[data-theme="cream"] ::-webkit-scrollbar {
+    width: 10px;
+}
+
+[data-theme="cream"] ::-webkit-scrollbar-track {
+    background: #f3e5d4;
+}
+
+[data-theme="cream"] ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #388e3c, #66bb6a);
+    border-radius: 5px;
+}
+
+[data-theme="cream"] ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #2d5016, #388e3c);
+}
+
+/* Dark theme scrollbar */
+[data-theme="dark"] ::-webkit-scrollbar {
+    width: 10px;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #388e3c, #66bb6a);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(102, 187, 106, 0.3);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #66bb6a, #81c784);
+}
+
+/* ========================================
    RESPONSIVE DESIGN
 ======================================== */
 
@@ -394,4 +1373,22 @@ a {
         height: 40px;
         font-size: 1.1rem;
     }
+
+    /* Reduce shadows on mobile for performance */
+    [data-theme="cream"] .post-card,
+    [data-theme="cream"] .card,
+    [data-theme="dark"] .post-card,
+    [data-theme="dark"] .card {
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    /* Less dramatic hover effects on mobile */
+    [data-theme="cream"] .post-card:hover,
+    [data-theme="cream"] .card:hover,
+    [data-theme="dark"] .post-card:hover,
+    [data-theme="dark"] .card:hover {
+        transform: translateY(-4px);
+    }
 }
+
+/* ========================================

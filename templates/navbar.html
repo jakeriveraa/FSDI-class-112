@@ -32,7 +32,7 @@
         </li>
         {% if user.is_authenticated %}
           <li class="nav-item">
-            <form action="{% url 'logout' %}" method="post" style="display:inline;">
+            <form action="{% url 'account_logout' %}" method="post" style="display:inline;">
               {% csrf_token %}
               <button type="submit" class="nav-link btn btn-link p-0" style="text-decoration:none;">
                 Logout
@@ -42,11 +42,11 @@
         {% else %}
           <li class="nav-item">
             <a class="nav-link {% if request.resolver_match.url_name == 'login' %}active{% endif %}"
-               href="{% url 'login' %}">Login</a>
+               href="{% url 'account_login' %}">Login</a>
           </li>
           <li class="nav-item">
             <a class="nav-link {% if request.resolver_match.url_name == 'signup' %}active{% endif %}"
-               href="{% url 'signup' %}">Sign Up</a>
+               href="{% url 'account_signup' %}">Sign Up</a>
           </li>
         {% endif %}
       </ul>

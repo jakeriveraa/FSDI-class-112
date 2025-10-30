@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% block title %} Email Verified {% endblock title %}
+{% block content %}
+<div class="container mt-5" style="max-width: 500px">
+  <div class="card shadow p-4 text-center">
+    <h2 class="mb-4">Email Verified!</h2>
+
+    <p>
+      Your email has been successfully verified. You can now log in and start
+      using your account.
+    </p>
+
+    <a href="{% url 'account_login' %}" class="btn btn-dark w-100 mt-3">
+      Login Now
+    </a>
+  </div>
+</div>
+{% endblock content %}
